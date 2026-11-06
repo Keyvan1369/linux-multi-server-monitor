@@ -1,0 +1,5 @@
+# format: name:ip   (use "local" for the controller itself)
+srv1:192.168.13.178
+srv2:192.168.24.59
+srv3:local
+srv4:192.168.34.1

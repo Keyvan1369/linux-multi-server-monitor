@@ -1,0 +1,7 @@
+config/servers.conf
+reports/*.csv
+reports/*.log
+scripts/*.old
+*.old
+id_*
+*.pem
