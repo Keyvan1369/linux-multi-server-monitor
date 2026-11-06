@@ -13,6 +13,23 @@ A lightweight Bash-based monitoring tool that checks the health of multiple Linu
 - Daily CSV reports for history and analysis
 - Automated runs every 5 minutes with cron
 
+## Screenshots
+
+### Normal run (4/4 servers online)
+![Normal run](screenshots/normal.png)
+
+### Offline detection (srv2 stopped)
+![Offline detection](screenshots/offline.png)
+
+### Recovery (srv2 restarted, 4/4 VMs running)
+![Recovery](screenshots/vagrant-recovered.png)
+
+### Threshold alert
+![Alert](screenshots/alert.png)
+
+### CSV report
+![CSV report](screenshots/csv.png)
+
 ## Architecture
 
 ```
@@ -37,7 +54,7 @@ linux-multi-server-monitor/
 │   └── collect-metrics.sh    # runs on each server
 ├── config/
 │   └── servers.conf.example  # server list template
-├── reports/                  # generated CSV reports (git-ignored)
+├── reports/                  # generated reports (git-ignored)
 ├── screenshots/
 ├── .gitignore
 └── README.md
@@ -97,6 +114,7 @@ TOTAL: 4 | ONLINE: 3 | OFFLINE: 1 | ALERTS: 0
 |------|--------|--------|
 | Normal run | All VMs running | 4/4 ONLINE |
 | Offline detection | `vagrant halt srv2` | srv2 reported OFFLINE, others unaffected |
+| Recovery | `vagrant up srv2` | srv2 back ONLINE |
 | CPU measurement | CPU load generated with busy loops | Measured 64% on the controller |
 | Alerts | Threshold temporarily lowered to 0 | All servers flagged HIGH_CPU |
 | Automation | cron every 5 minutes | Reports generated automatically |
